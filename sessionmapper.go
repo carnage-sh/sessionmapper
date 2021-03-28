@@ -37,7 +37,7 @@ func CreateConfig() *Config {
 // SessionMapper is the SessionMapper plugin.
 type SessionMapper struct {
 	headers []string
-	client  client
+	client  *http.Client
 	server  string
 	next    http.Handler
 }
