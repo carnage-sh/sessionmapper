@@ -3,21 +3,32 @@ package sessionmapper
 import (
 	"bytes"
 	"context"
-	"io"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
 
-type MockClient struct{}
+func TestClient(t *testing.T) {
 
-func (m *MockClient) Post(string, string, io.Reader) (*http.Response, error) {
-	r := bytes.NewBufferString(`{"upstream":{"they": "too"}}`)
-	rc := io.NopCloser(r)
-	return &http.Response{
-		StatusCode: 200,
-		Body:       rc,
-	}, nil
+	ts := httptest.NewServer(
+		http.HandlerFunc(
+			func(w http.ResponseWriter, r *http.Request) {
+				fmt.Fprintf(w, `{"upstream":{"me": "too"}}`)
+			}))
+	defer ts.Close()
+
+	c := ts.Client()
+	resp, err := c.Get(ts.URL)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%s\n", resp.Status)
+
+	buf := new(bytes.Buffer)
+	buf.ReadFrom(resp.Body)
+	s := buf.String()
+	assertString(t, `{"upstream":{"me": "too"}}`, s)
 }
 
 func TestSessionMapper(t *testing.T) {
@@ -27,10 +38,16 @@ func TestSessionMapper(t *testing.T) {
 	ctx := context.Background()
 	next := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {})
 
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintln(w, `{"upstream":{"they": "too", "you": "too", "me": "too"}}`)
+	}))
+	defer ts.Close()
+	c := ts.Client()
+
 	handler := &SessionMapper{
 		headers: []string{"they", "you"},
-		client:  &MockClient{},
-		server:  "server",
+		client:  c,
+		server:  ts.URL,
 		next:    next,
 	}
 	recorder := httptest.NewRecorder()

@@ -5,14 +5,8 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
-	"fmt"
-	"io"
 	"net/http"
 )
-
-type client interface {
-	Post(string, string, io.Reader) (*http.Response, error)
-}
 
 // Config the plugin configuration.
 type Config struct {
@@ -51,7 +45,6 @@ func (s *SessionMapper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	b, _ := json.Marshal(&payload)
-	fmt.Printf("server: %s", s.server)
 	resp, err := s.client.Post(s.server, "application/json", bytes.NewReader(b))
 	if err != nil {
 		s.next.ServeHTTP(w, r)
