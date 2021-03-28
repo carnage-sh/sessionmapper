@@ -1,16 +1,10 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"net/http"
 )
 
 func main() {
-    http.HandleFunc("/", HelloServer)
-    http.ListenAndServe(":5000", nil)
+	http.HandleFunc("/", DisplayHandler)
+	http.ListenAndServe(":5000", nil)
 }
-
-func HelloServer(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello!")
-}
-

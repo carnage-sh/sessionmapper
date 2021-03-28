@@ -1,3 +1,3 @@
-module github.com/blaqkube/traefik-session-mapper
+module github.com/blaqkube/sessionmapper
 
 go 1.16

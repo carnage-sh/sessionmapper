@@ -5,6 +5,11 @@ import: github.com/blaqkube/sessionmapper
 
 summary: 'SessionMapper Plugin'
 
+iconPath: img/blaqkube.png
+bannerPath: img/blaqkube.png
+
 testData:
-  Headers:
-    me: too
+  timeout: 200
+  server: http://localhost:7777/
+  headers:
+  - me

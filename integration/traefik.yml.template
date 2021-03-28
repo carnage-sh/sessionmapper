@@ -1,0 +1,15 @@
+pilot:
+    token: xxxx
+
+api:
+  insecure: true
+  dashboard: true
+
+providers:
+  file:
+    filename: ./http.yml
+
+experimental:
+  devPlugin:
+    goPath: /project/go
+    moduleName: github.com/blaqkube/sessionmapper

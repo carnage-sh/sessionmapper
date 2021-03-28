@@ -1,0 +1,25 @@
+
+http:
+  routers:
+    my-router:
+      rule: Path(`/`)
+      service: service-foo
+      entryPoints:
+        - http
+      middlewares:
+        - my-sessionmapper
+
+  services:
+   service-foo:
+      loadBalancer:
+        servers:
+          - url: http://localhost:5000
+  
+  middlewares:
+    my-sessionmapper:
+      plugin:
+        dev:
+          headers:
+            - me
+          server: http://localhost:7777
+          timeout: 200
