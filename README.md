@@ -3,6 +3,11 @@
 A Traefik middleware that maps users or sessions to with properties for
 A/B tests, canari deployments, traces, security and anything you want. 
 
+![GitHub branch checks state](https://img.shields.io/github/checks-status/blaqkube/sessionmapper/main?color=deeppink)
+![GitHub](https://img.shields.io/github/license/blaqkube/sessionmapper?color=lime)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/blaqkube/sessionmapper/main?color=blue&label=Go)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/blaqkube/sessionmapper?color=black)
+
 ## Overview
 
 Session Mapper is a simple middleware for Traefik that queries an API and
@@ -43,5 +48,3 @@ release will improve the protocol to reduce the latency and make it more
 reliable, including blocking on failure. Do not hesitate to open an issue if
 you repository find this plugin useful and want to support more advanced
 scenarios.
-
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](./LICENSE)
