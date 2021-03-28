@@ -1,15 +1,19 @@
-# Traefik SessionMapper
+**SessionMapper** is a Traefik plugin. It provides an advanced middleware to
+easily map sessions with users, groups or any properties. It enables A/B
+testing, canary deployments, security, data collection and more...
 
-A Traefik middleware that maps users or sessions to with properties for
-A/B tests, canari deployments, traces, security and anything you want. 
+![GitHub branch checks state](https://img.shields.io/github/checks-status/blaqkube/sessionmapper/main?color=deeppink)
+![GitHub](https://img.shields.io/github/license/blaqkube/sessionmapper?color=lime)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/blaqkube/sessionmapper/main?color=blue&label=Go)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/blaqkube/sessionmapper?color=black)
 
 ## Overview
 
-Session Mapper is a simple middleware for Traefik that queries an API and
-set additional headers before it runs upstream requests. The middleware can
-be used in front of others. It allows advanced behaviors like setting a
-headers for a session, a user or a group of users. Applications are endless.
-The middleware requires you run a SessionMapper server as shown below:
+The SessionMapper middleware for Traefik queries an API and set additional
+headers before it runs upstream requests. The middleware can be used in front
+of others. It allows advanced behaviors like setting a headers for a session, a
+user, a group of users and an experiment. Applications are endless... The
+principle is shown below:
 
 ![overview](./img/architecture.png)
 
@@ -18,7 +22,7 @@ The middleware requires you run a SessionMapper server as shown below:
 You only need a few parameters to configure the middleware:
 
 - `headers` lists the headers to capture from the request and send to the
-  server (default: [`me`])
+  server (default: `me`)
 - `server` is the server URL (default: `http://localhost:7777/`)
 - `timeout` is the delay in milliseconds before the request to the server
   fails and no headers are set to the upstream request.
@@ -43,5 +47,3 @@ release will improve the protocol to reduce the latency and make it more
 reliable, including blocking on failure. Do not hesitate to open an issue if
 you repository find this plugin useful and want to support more advanced
 scenarios.
-
-[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](./LICENSE)
