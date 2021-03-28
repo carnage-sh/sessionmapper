@@ -51,7 +51,7 @@ func (s *SessionMapper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	b, _ := json.Marshal(&payload)
-	fmt.Printf()
+	fmt.Printf("server: %s", s.server)
 	resp, err := s.client.Post(s.server, "application/json", bytes.NewReader(b))
 	if err != nil {
 		s.next.ServeHTTP(w, r)
