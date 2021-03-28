@@ -43,3 +43,5 @@ release will improve the protocol to reduce the latency and make it more
 reliable, including blocking on failure. Do not hesitate to open an issue if
 you repository find this plugin useful and want to support more advanced
 scenarios.
+
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](./LICENSE)
