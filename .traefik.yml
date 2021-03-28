@@ -1,0 +1,10 @@
+displayName: SessionMapper Plugin
+type: middleware
+
+import: github.com/blaqkube/sessionmapper
+
+summary: 'SessionMapper Plugin'
+
+testData:
+  Headers:
+    me: too
