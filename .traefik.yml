@@ -1,0 +1,15 @@
+displayName: SessionMapper
+type: middleware
+
+import: github.com/blaqkube/sessionmapper
+
+summary: 'Add properties to your requests based advanced logic'
+
+iconPath: img/blaqkube.png
+bannerPath: img/blaqkube.png
+
+testData:
+  timeout: 200
+  server: http://localhost:7777/
+  headers:
+  - me
