@@ -1,9 +1,9 @@
-displayName: SessionMapper Plugin
+displayName: SessionMapper
 type: middleware
 
 import: github.com/blaqkube/sessionmapper
 
-summary: 'SessionMapper Plugin'
+summary: 'Add properties to your requests based advanced logic'
 
 iconPath: img/blaqkube.png
 bannerPath: img/blaqkube.png

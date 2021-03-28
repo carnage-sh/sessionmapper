@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"net/http"
+	"time"
 )
 
 // Config the plugin configuration.
@@ -67,7 +68,7 @@ func (s *SessionMapper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 // New created a new SessionMapper plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
 	client := &http.Client{
-		// Timeout: time.Millisecond * time.Duration(config.Timeout),
+		Timeout: time.Millisecond * time.Duration(config.Timeout),
 	}
 	return &SessionMapper{
 		headers: config.Headers,

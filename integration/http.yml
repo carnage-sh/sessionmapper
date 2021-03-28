@@ -22,4 +22,4 @@ http:
           headers:
             - me
           server: http://localhost:7777
-          timeout: 200
+          timeout: 2
