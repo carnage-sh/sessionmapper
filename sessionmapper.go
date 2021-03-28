@@ -5,9 +5,9 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
-	"time"
 )
 
 type client interface {
@@ -51,6 +51,7 @@ func (s *SessionMapper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	b, _ := json.Marshal(&payload)
+	fmt.Printf()
 	resp, err := s.client.Post(s.server, "application/json", bytes.NewReader(b))
 	if err != nil {
 		s.next.ServeHTTP(w, r)
@@ -73,7 +74,7 @@ func (s *SessionMapper) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 // New created a new SessionMapper plugin.
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
 	client := &http.Client{
-		Timeout: time.Millisecond * time.Duration(config.Timeout),
+		// Timeout: time.Millisecond * time.Duration(config.Timeout),
 	}
 	return &SessionMapper{
 		headers: config.Headers,

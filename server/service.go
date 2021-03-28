@@ -8,12 +8,11 @@ import (
 )
 
 func ServiceHandler(w http.ResponseWriter, r *http.Request) {
-	var keys = make(map[string]string)
+	keys := map[string]string{}
 	if r.Body != nil {
 		err := json.NewDecoder(r.Body).Decode(&keys)
 		if err != nil {
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
+			keys = map[string]string{}
 		}
 	}
 	output := map[string]string{"they": "too"}
