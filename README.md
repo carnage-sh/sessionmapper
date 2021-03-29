@@ -1,21 +1,22 @@
-**SessionMapper** is a Traefik plugin. It provides an advanced middleware to
-easily map sessions with users, groups or any properties. It enables A/B
-testing, canary deployments, security, data collection and more...
+# SessionMapper ![GitHub branch checks state](https://img.shields.io/github/checks-status/blaqkube/sessionmapper/main?color=deeppink)
 
-![GitHub branch checks state](https://img.shields.io/github/checks-status/blaqkube/sessionmapper/main?color=deeppink)
-![GitHub](https://img.shields.io/github/license/blaqkube/sessionmapper?color=lime)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/blaqkube/sessionmapper/main?color=blue&label=Go)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/blaqkube/sessionmapper?color=black)
+**SessionMapper** adds properties to your requests based on custom logic.
+To perform its task, it connects to a Mapping Server that matches sessions to
+users, groups, roles, experiments, preferences, tracing properties or whatever
+is needed to provide advanced server-side routing capabilities.
 
 ## Overview
 
 The SessionMapper middleware for Traefik queries an API and set additional
 headers before it runs upstream requests. The middleware can be used in front
-of others. It allows advanced behaviors like setting a headers for a session, a
-user, a group of users and an experiment. Applications are endless... The
+of others. It allows advanced behaviors and applications are limitless... The
 principle is shown below:
 
 ![overview](./img/architecture.png)
+
+SessionMapper can easily be used and adapted for A/B testing, canary
+deployment, role-based security, advanced tracing, test collection,
+personalization...
 
 ## Configuration
 
