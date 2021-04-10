@@ -1,15 +1,15 @@
 displayName: SessionMapper
 type: middleware
 
-import: github.com/blaqkube/sessionmapper
+import: github.com/carnage-sh/sessionmapper
 
 summary: >-
   Add properties to your requests based on advanced logic. SessionMapper
   connects to a Mapper Server that matches sessions to users, groups, roles,
   experiments, preferences, tracing properties or whatever is needed...
 
-iconPath: img/blaqkube.png
-bannerPath: img/blaqkube.png
+iconPath: img/carnage-sh.png
+bannerPath: img/carnage-sh.png
 
 testData:
   timeout: 200

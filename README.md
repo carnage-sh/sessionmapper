@@ -1,4 +1,4 @@
-# SessionMapper ![GitHub branch checks state](https://img.shields.io/github/checks-status/blaqkube/sessionmapper/main?color=deeppink)
+# SessionMapper ![GitHub branch checks state](https://img.shields.io/github/checks-status/carnage-sh/sessionmapper/main?color=deeppink)
 
 **SessionMapper** adds properties to your requests based on custom logic.
 To perform its task, it connects to a Mapping Server that matches sessions to
@@ -42,7 +42,7 @@ a `POST` to the `server` URL. The return message would look like below:
 ```
 
 The `server` directory that is part of the
-[blaqkube/sessionmapper](http://github.com/blaqkube/sessionmapper) provides
+[carnage-sh/sessionmapper](http://github.com/carnage-sh/sessionmapper) provides
 a simple service that implements the current request/response protocol. Next
 release will improve the protocol to reduce the latency and make it more
 reliable, including blocking on failure. Do not hesitate to open an issue if

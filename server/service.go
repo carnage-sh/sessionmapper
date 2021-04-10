@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/blaqkube/sessionmapper"
+	"github.com/carnage-sh/sessionmapper"
 )
 
 func ServiceHandler(w http.ResponseWriter, r *http.Request) {
