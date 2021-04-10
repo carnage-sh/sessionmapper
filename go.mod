@@ -1,3 +1,3 @@
-module github.com/blaqkube/sessionmapper
+module github.com/carnage-sh/sessionmapper
 
 go 1.16
